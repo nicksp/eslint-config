@@ -1,0 +1,81 @@
+import { GLOB_ASTRO } from '../globs'
+import {
+  pluginAntfu,
+  pluginPrettier,
+  pluginPrettierRecommended,
+} from '../plugins'
+import { ensurePackages, isPackageInScope } from '../utils'
+
+import type { Options as PrettierOptions } from 'prettier'
+import type {
+  Config,
+  OptionsEnableAstro,
+  OptionsOverrides,
+  OptionsPrettierOptions,
+} from '../types'
+
+export async function prettier(
+  options: OptionsPrettierOptions & OptionsOverrides & OptionsEnableAstro = {},
+): Promise<Config[]> {
+  const {
+    enableAstro = isPackageInScope('prettier-plugin-astro'),
+    options: prettierOptions = {},
+  } = options
+
+  await ensurePackages([
+    '@nicksp/prettier-config',
+    enableAstro ? 'prettier-plugin-astro' : undefined,
+  ])
+
+  const defaultPrettierOptions = await import('@nicksp/prettier-config')
+
+  // Merge defaults with user overrides
+  const finalPrettierOptions: PrettierOptions = {
+    ...defaultPrettierOptions,
+    ...prettierOptions,
+  }
+
+  const configs: Config[] = [
+    {
+      name: 'nicksp/prettier/setup',
+      plugins: {
+        antfu: pluginAntfu,
+        prettier: pluginPrettier,
+      },
+    },
+  ]
+
+  if (enableAstro) {
+    configs.push({
+      files: [GLOB_ASTRO],
+      name: 'nicksp/prettier/astro',
+      rules: {
+        'prettier/prettier': [
+          'warn',
+          {
+            ...finalPrettierOptions,
+            parser: 'astro',
+            plugins: ['prettier-plugin-astro'],
+          },
+        ],
+      },
+    })
+  }
+
+  configs.push({
+    name: 'nicksp/prettier/rules',
+    rules: {
+      ...pluginPrettierRecommended.rules,
+
+      // Extra stylistic formatting
+      'antfu/consistent-chaining': 'error',
+      'antfu/consistent-list-newline': 'error',
+      'antfu/top-level-function': 'error',
+      curly: ['error', 'all'],
+
+      'prettier/prettier': ['warn', finalPrettierOptions],
+    },
+  })
+
+  return configs
+}
