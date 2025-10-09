@@ -67,8 +67,7 @@ export async function react(
         ...plugins['@eslint-react/dom'].configs.recommended.rules,
 
         // recommended rules from eslint-plugin-react-hooks https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks/src/rules
-        'react-hooks/exhaustive-deps': 'warn',
-        'react-hooks/rules-of-hooks': 'error',
+        ...pluginReactHooks.configs.recommended.rules,
 
         // recommended rules from eslint-plugin-react-hooks-extra https://eslint-react.xyz/docs/rules/overview#hooks-extra-rules
         ...plugins['@eslint-react/hooks-extra'].configs.recommended.rules,
