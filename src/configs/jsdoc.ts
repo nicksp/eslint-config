@@ -25,6 +25,7 @@ export async function jsdoc(): Promise<Config[]> {
         'jsdoc/require-returns-check': 'warn',
         'jsdoc/require-returns-description': 'warn',
         'jsdoc/require-yields-check': 'warn',
+        'jsdoc/type-formatting': ['warn', { stringQuotes: 'single' }],
       },
     },
   ]
