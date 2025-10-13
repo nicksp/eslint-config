@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/nicksp/eslint-config/compare/v1.1.0...v1.2.0) (2025-10-13)
+
+
+### Features
+
+* refactor plugin imports to use dynamic loading ([fa149b5](https://github.com/nicksp/eslint-config/commit/fa149b514184f31e1ecadf01daa0aab15f899ab6))
+
 ## [1.1.0](https://github.com/nicksp/eslint-config/compare/v1.0.0...v1.1.0) (2025-10-09)
 
 ### Features
