@@ -1,7 +1,8 @@
 import globals from 'globals'
 
 import { GLOB_ASTRO, GLOB_ASTRO_JS, GLOB_ASTRO_TS } from '../globs'
-import { parserAstro, pluginAstro, tseslint } from '../plugins'
+import { tseslint } from '../plugins'
+import { interopDefault } from '../utils'
 
 import type { Config, OptionsFiles, OptionsOverrides } from '../types'
 
@@ -9,6 +10,11 @@ export async function astro(
   options: OptionsOverrides & OptionsFiles = {},
 ): Promise<Config[]> {
   const { files = [GLOB_ASTRO], overrides = {} } = options
+
+  const [parserAstro, pluginAstro] = await Promise.all([
+    interopDefault(import('astro-eslint-parser')),
+    interopDefault(import('eslint-plugin-astro')),
+  ])
 
   return [
     {

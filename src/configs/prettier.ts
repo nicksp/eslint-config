@@ -1,10 +1,6 @@
 import { GLOB_ASTRO } from '../globs'
-import {
-  pluginAntfu,
-  pluginPrettier,
-  pluginPrettierRecommended,
-} from '../plugins'
-import { ensurePackages, isPackageInScope } from '../utils'
+import { pluginAntfu } from '../plugins'
+import { ensurePackages, interopDefault, isPackageInScope } from '../utils'
 
 import type { Options as PrettierOptions } from 'prettier'
 import type {
@@ -25,6 +21,11 @@ export async function prettier(
   await ensurePackages([
     '@nicksp/prettier-config',
     enableAstro ? 'prettier-plugin-astro' : undefined,
+  ])
+
+  const [pluginPrettier, pluginPrettierRecommended] = await Promise.all([
+    interopDefault(import('eslint-plugin-prettier')),
+    interopDefault(import('eslint-plugin-prettier/recommended')),
   ])
 
   const defaultPrettierOptions = await import('@nicksp/prettier-config')

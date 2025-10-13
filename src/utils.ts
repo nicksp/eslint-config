@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { isPackageExists } from 'local-pkg'
 
 import type { Linter } from 'eslint'
+import type { Awaitable } from 'eslint-flat-config-utils'
 import type { RuleOptions } from './typegen'
 import type { Options, ResolvedOptions } from './types'
 
@@ -41,6 +42,13 @@ export async function ensurePackages(
       i.installPackage(nonExistingPackages, { dev: true }),
     )
   }
+}
+
+export async function interopDefault<T>(
+  m: Awaitable<T>,
+): Promise<T extends { default: infer U } ? U : T> {
+  const resolved = await m
+  return (resolved as any).default || resolved
 }
 
 export function isInEditorEnv(): boolean {

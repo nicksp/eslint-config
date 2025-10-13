@@ -1,6 +1,5 @@
 import { GLOB_JSX, GLOB_TSX } from '../globs'
-import { jsxA11yPlugin } from '../plugins'
-import { ensurePackages } from '../utils'
+import { ensurePackages, interopDefault } from '../utils'
 
 import type { Config, OptionsJSX } from '../types'
 
@@ -28,6 +27,7 @@ export async function jsx(options: OptionsJSX = {}): Promise<Config[]> {
   }
 
   await ensurePackages(['eslint-plugin-jsx-a11y'])
+  const jsxA11yPlugin = await interopDefault(import('eslint-plugin-jsx-a11y'))
   const a11yConfig = jsxA11yPlugin.flatConfigs.recommended
 
   const a11yRules = {

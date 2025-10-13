@@ -24,7 +24,7 @@ Shared ESLint config I use on my personal projects. Based on [antfu's config](ht
 ## Setup
 
 ```shell
-pnpm add -D eslint @nicksp/eslint-config
+pnpm add -D eslint@latest @nicksp/eslint-config
 ```
 
 Create `eslint.config.mjs` in your project root:
@@ -33,6 +33,18 @@ Create `eslint.config.mjs` in your project root:
 import { defineConfig } from '@nicksp/eslint-config'
 
 export default defineConfig()
+```
+
+Add scripts for `package.json`:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write \"**/*.{js,cjs,mjs,jsx,ts,tsx,astro,css,json,md}\""
+  }
+}
 ```
 
 Configure VS Code for auto-fix on save in `.vscode/settings.json`:

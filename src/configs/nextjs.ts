@@ -1,6 +1,5 @@
 import { GLOB_SRC } from '../globs'
-import { pluginNextJs } from '../plugins'
-import { ensurePackages } from '../utils'
+import { ensurePackages, interopDefault } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { Config, OptionsFiles, OptionsOverrides } from '../types'
@@ -11,6 +10,8 @@ export async function nextjs(
   const { files = [GLOB_SRC], overrides = {} } = options
 
   await ensurePackages(['@next/eslint-plugin-next'])
+
+  const pluginNextJs = await interopDefault(import('@next/eslint-plugin-next'))
 
   return [
     {
