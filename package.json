@@ -53,7 +53,7 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "@eslint-react/eslint-plugin": "^2.0.6",
+    "@eslint-react/eslint-plugin": "^2.2.0",
     "@next/eslint-plugin-next": "^15.5.4",
     "@nicksp/prettier-config": "^1.0.1",
     "astro-eslint-parser": "^1.2.2",
@@ -125,7 +125,7 @@
   },
   "devDependencies": {
     "@antfu/ni": "^26.1.0",
-    "@eslint-react/eslint-plugin": "^2.0.6",
+    "@eslint-react/eslint-plugin": "^2.2.0",
     "@eslint/config-inspector": "^1.3.0",
     "@next/eslint-plugin-next": "^15.5.4",
     "@nicksp/eslint-config": "workspace:*",
