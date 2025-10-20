@@ -1,7 +1,7 @@
 import { defineConfig } from 'eslint/config'
 
 import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
-import { tseslint } from '../plugins'
+import { pluginErasableSyntaxOnly, tseslint } from '../plugins'
 import { restrictedSyntaxJs } from './javascript'
 
 import type {
@@ -45,6 +45,7 @@ export async function typescript(
       name: 'nicksp/typescript/setup',
       plugins: {
         '@typescript-eslint': tseslint.plugin,
+        'erasable-syntax-only': pluginErasableSyntaxOnly,
       },
     },
     {
@@ -121,6 +122,8 @@ export async function typescript(
         ],
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
+
+        ...pluginErasableSyntaxOnly.configs.recommended.rules,
 
         ...(type === 'lib'
           ? {

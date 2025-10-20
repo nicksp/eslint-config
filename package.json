@@ -105,6 +105,7 @@
     "eslint-flat-config-utils": "^2.1.4",
     "eslint-plugin-antfu": "^3.1.1",
     "eslint-plugin-de-morgan": "^2.0.0",
+    "eslint-plugin-erasable-syntax-only": "^0.3.1",
     "eslint-plugin-import-lite": "^0.3.0",
     "eslint-plugin-jsdoc": "^61.1.1",
     "eslint-plugin-jsonc": "^2.21.0",
