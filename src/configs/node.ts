@@ -2,7 +2,7 @@ import { pluginNode } from '../plugins'
 
 import type { Config } from '../types'
 
-export async function node(): Promise<Config[]> {
+export function node(): Config[] {
   return [
     {
       name: 'nicksp/node/rules',
@@ -31,10 +31,6 @@ export async function node(): Promise<Config[]> {
         'node/no-unsupported-features/es-syntax': [
           'error',
           { ignores: ['modules'] },
-        ],
-        'node/no-unsupported-features/node-builtins': [
-          'error',
-          { allowExperimental: true },
         ],
         'node/prefer-global/buffer': ['error', 'never'],
         'node/prefer-global/process': ['error', 'never'],

@@ -11,12 +11,12 @@ import type {
 // Hold the reference so we don't redeclare the plugin on each call
 let _pluginTest: any
 
-export async function test(
+export function test(
   options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},
-): Promise<Config[]> {
+): Config[] {
   const { files = GLOB_TESTS, isInEditor = false, overrides = {} } = options
 
-  _pluginTest = _pluginTest || {
+  _pluginTest = Boolean(_pluginTest) || {
     ...pluginVitest,
     rules: {
       ...pluginVitest.rules,

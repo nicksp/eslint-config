@@ -5,7 +5,7 @@ import type { Config } from '../types'
 /**
  * Sort package.json
  */
-export async function sortPackageJson(): Promise<Config[]> {
+export function sortPackageJson(): Config[] {
   return [
     {
       files: ['**/package.json'],

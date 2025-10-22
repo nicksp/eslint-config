@@ -22,7 +22,7 @@ export async function jsx(options: OptionsJSX = {}): Promise<Config[]> {
   }
 
   // Return early if no a11y configuration is needed
-  if (!a11y) {
+  if (a11y === false || a11y === undefined) {
     return [baseConfig]
   }
 

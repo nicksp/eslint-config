@@ -40,6 +40,7 @@ import type { Config, ConfigNames, Options } from './types'
  * @param userConfigs - The user configurations to be merged with the generated configurations.
  * @returns The merged ESLint configurations.
  */
+// eslint-disable-next-line @typescript-eslint/promise-function-async
 export function defineConfig(
   options: Options & Omit<Config, 'files'> = {},
   ...userConfigs: Awaitable<
@@ -53,6 +54,7 @@ export function defineConfig(
     prettier: enablePrettier = true,
     react: enableReact = false,
     regexp: enableRegexp = true,
+    test: enableTest = true,
     type: projectType = 'app',
     typescript: enableTypeScript = isPackageExists('typescript'),
     yaml: enableYaml = true,
@@ -72,6 +74,7 @@ export function defineConfig(
     typeof enablePrettier === 'object' ? enablePrettier.options : {}
 
   const typescriptOptions = resolveSubOptions(options, 'typescript')
+  const typeAware = typescriptOptions.typeAware ?? true
 
   // Base configs
   configs.push(
@@ -88,21 +91,22 @@ export function defineConfig(
     sortImports(),
   )
 
-  if (enableJsx) {
+  if (enableJsx !== false) {
     configs.push(jsx(enableJsx === true ? {} : enableJsx))
   }
 
-  if (enableTypeScript) {
+  if (enableTypeScript !== false) {
     configs.push(
       typescript({
         ...typescriptOptions,
         overrides: getOverrides(options, 'typescript'),
         type: projectType,
+        typeAware,
       }),
     )
   }
 
-  if (enablePrettier) {
+  if (enablePrettier !== false) {
     configs.push(
       prettier({
         enableAstro: Boolean(enableAstro),
@@ -111,11 +115,11 @@ export function defineConfig(
     )
   }
 
-  if (enableRegexp) {
+  if (enableRegexp !== false) {
     configs.push(regexp(typeof enableRegexp === 'boolean' ? {} : enableRegexp))
   }
 
-  if (options.test ?? true) {
+  if (enableTest !== false) {
     configs.push(
       test({
         isInEditor,
@@ -124,16 +128,17 @@ export function defineConfig(
     )
   }
 
-  if (enableReact) {
+  if (enableReact !== false) {
     configs.push(
       react({
         ...typescriptOptions,
         overrides: getOverrides(options, 'react'),
+        typeAware,
       }),
     )
   }
 
-  if (enableNextjs) {
+  if (enableNextjs !== false) {
     configs.push(
       nextjs({
         overrides: getOverrides(options, 'nextjs'),
@@ -141,7 +146,7 @@ export function defineConfig(
     )
   }
 
-  if (enableAstro) {
+  if (enableAstro !== false) {
     configs.push(
       astro({
         overrides: getOverrides(options, 'astro'),
@@ -151,7 +156,7 @@ export function defineConfig(
 
   configs.push(jsonc(), sortPackageJson(), sortTsconfig())
 
-  if (enableYaml) {
+  if (enableYaml !== false) {
     configs.push(
       yaml({
         overrides: getOverrides(options, 'yaml'),
@@ -167,9 +172,10 @@ export function defineConfig(
     )
   }
 
-  let composer = new FlatConfigComposer<Config, ConfigNames>()
-
-  composer = composer.append(...configs, ...(userConfigs as any))
+  let composer = new FlatConfigComposer<Config, ConfigNames>(
+    ...configs,
+    ...(userConfigs as any),
+  )
 
   if (isInEditor) {
     composer = composer.disableRulesFix(
@@ -179,7 +185,7 @@ export function defineConfig(
         'prefer-const',
       ],
       {
-        builtinRules: () =>
+        builtinRules: async () =>
           import(['eslint', 'use-at-your-own-risk'].join('/')).then(
             r => r.builtinRules,
           ),

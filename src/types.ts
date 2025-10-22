@@ -30,7 +30,7 @@ export type Config = Omit<Linter.Config, 'plugins' | 'rules'> & {
 
 export type ResolvedOptions<T> = T extends boolean ? never : NonNullable<T>
 
-export type OptionsFiles = {
+export interface OptionsFiles {
   /**
    * Override the `files` option to provide custom globs.
    */
@@ -41,7 +41,7 @@ export type OptionsJSXA11y = {
   // Add future a11y-specific options here
 } & OptionsOverrides
 
-export type OptionsJSX = {
+export interface OptionsJSX {
   /**
    * Enable JSX accessibility rules.
    *
@@ -54,15 +54,43 @@ export type OptionsJSX = {
   a11y?: boolean | OptionsJSXA11y
 }
 
-export type OptionsOverrides = {
+export type OptionsTypescript = OptionsTypeScriptWithTypes & OptionsOverrides
+
+export interface OptionsTypeScriptWithTypes {
+  /**
+   * When this options is provided, type aware rules will be enabled.
+   * @see https://typescript-eslint.io/getting-started/typed-linting/
+   * @default true
+   */
+  typeAware?: boolean
+
+  /**
+   * Glob patterns for files that should be type aware.
+   * @default ['**\/*.{ts,tsx}']
+   */
+  filesTypeAware?: string[]
+
+  /**
+   * Glob patterns for files that should not be type aware.
+   * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
+   */
+  ignoresTypeAware?: string[]
+
+  /**
+   * Override type aware rules.
+   */
+  overridesTypeAware?: Config['rules']
+}
+
+export interface OptionsOverrides {
   overrides?: Config['rules']
 }
 
-export type OptionsPrettierOptions = {
+export interface OptionsPrettierOptions {
   options?: PrettierOptions
 }
 
-export type OptionsProjectType = {
+export interface OptionsProjectType {
   /**
    * Type of the project. `lib` will enable more strict rules for libraries.
    *
@@ -71,18 +99,18 @@ export type OptionsProjectType = {
   type?: 'app' | 'lib'
 }
 
-export type OptionsRegExp = {
+export interface OptionsRegExp {
   /**
    * Override rulelevels
    */
   level?: 'error' | 'warn'
 }
 
-export type OptionsIsInEditor = {
+export interface OptionsIsInEditor {
   isInEditor?: boolean
 }
 
-export type OptionsEnableAstro = {
+export interface OptionsEnableAstro {
   enableAstro?: boolean
 }
 
@@ -99,7 +127,7 @@ export type Options = {
    *
    * @default auto-detect based on the dependencies
    */
-  typescript?: boolean | OptionsOverrides
+  typescript?: boolean | OptionsTypescript
 
   /**
    * Enable JSX related rules.

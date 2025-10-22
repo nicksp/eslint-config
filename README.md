@@ -181,7 +181,9 @@ export default defineConfig({
 ## Other Projects You Might Like
 
 - [nicksp/dotfiles](https://github.com/nicksp/dotfiles/) - My dotfiles and VS Code settings
-- [nicksp/prettier](https://github.com/nicksp/prettier-config) - My Prettier config
+- [nicksp/prettier-config](https://github.com/nicksp/prettier-config) - My Prettier config
+- [nicksp/renovate-config](https://github.com/nicksp/renovate-config) - My Renovate config
+- [nicksp/workflows](https://github.com/nicksp/workflows) - Reusable GitHub Actions workflows
 
 ## License
 

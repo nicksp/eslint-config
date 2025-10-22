@@ -1,14 +1,21 @@
+import process from 'node:process'
 import { defineConfig } from 'eslint/config'
 
-import { GLOB_JS, GLOB_TS, GLOB_TSX } from '../globs'
+import {
+  GLOB_ASTRO_TS,
+  GLOB_JS,
+  GLOB_MARKDOWN,
+  GLOB_TS,
+  GLOB_TSX,
+} from '../globs'
 import { pluginErasableSyntaxOnly, tseslint } from '../plugins'
 import { restrictedSyntaxJs } from './javascript'
 
 import type {
   Config,
   OptionsFiles,
-  OptionsOverrides,
   OptionsProjectType,
+  OptionsTypescript,
 } from '../types'
 
 function extractRules(configs: Config[]): Config['rules'] {
@@ -26,35 +33,100 @@ function extractRules(configs: Config[]): Config['rules'] {
 export const typescriptRecommended: Config[] = defineConfig(
   tseslint.configs.strict,
   tseslint.configs.stylistic,
-) as any
+)
+const recommendedRules = extractRules(typescriptRecommended)
 
-export async function typescript(
-  options: OptionsFiles & OptionsOverrides & OptionsProjectType = {},
-): Promise<Config[]> {
-  const { overrides = {}, type = 'app' } = options
+export const typescriptTypeCheckedRecommended: Config[] = defineConfig(
+  tseslint.configs.strictTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+)
+const recommendedTypeCheckedRules = extractRules(
+  typescriptTypeCheckedRecommended,
+)
+
+export function typescript(
+  options: OptionsTypescript & OptionsFiles & OptionsProjectType = {},
+): Config[] {
+  const {
+    overrides = {},
+    overridesTypeAware = {},
+    type = 'app',
+    typeAware,
+  } = options
 
   const files = options.files ?? [GLOB_TS, GLOB_TSX]
 
-  const recommendedRules = extractRules(typescriptRecommended as any)
+  const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX]
+  const ignoresTypeAware = options.ignoresTypeAware ?? [
+    `${GLOB_MARKDOWN}/**`,
+    GLOB_ASTRO_TS,
+  ]
+  const typeAwareRules: Config['rules'] = {
+    '@typescript-eslint/consistent-type-exports': [
+      'error',
+      { fixMixedExportsWithInlineTypeSpecifier: true },
+    ],
+    '@typescript-eslint/promise-function-async': 'error',
+    '@typescript-eslint/restrict-plus-operands': 'error',
+    '@typescript-eslint/restrict-template-expressions': 'error',
+    '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+    '@typescript-eslint/strict-boolean-expressions': [
+      'error',
+      { allowNullableBoolean: true, allowNullableObject: true },
+    ],
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+  }
+
+  function makeParser(
+    typeAware: boolean,
+    files: string[],
+    ignores?: string[],
+  ): Config {
+    return {
+      files,
+      ...(ignores ? { ignores } : {}),
+      languageOptions: {
+        parser: tseslint.parser,
+        parserOptions: {
+          sourceType: 'module',
+          ...(typeAware
+            ? {
+                projectService: {
+                  allowDefaultProject: ['*.js'],
+                },
+                tsconfigRootDir: process.cwd(),
+              }
+            : {}),
+        },
+        sourceType: 'module',
+      },
+      name: `nicksp/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`,
+    }
+  }
 
   return [
     {
-      languageOptions: {
-        parser: tseslint.parser,
-      },
+      // Install the plugins without globs, so they can be configured separately
       name: 'nicksp/typescript/setup',
       plugins: {
         '@typescript-eslint': tseslint.plugin,
         'erasable-syntax-only': pluginErasableSyntaxOnly,
       },
     },
+
+    // Assign type-aware parser for type-aware files and type-unaware parser for the rest
+    ...(typeAware
+      ? [makeParser(true, filesTypeAware, ignoresTypeAware)]
+      : [makeParser(false, files)]),
+
     {
       files,
       name: 'nicksp/typescript/recommended',
       rules: {
-        ...recommendedRules,
+        ...(typeAware ? recommendedTypeCheckedRules : recommendedRules),
       },
     },
+
     {
       files,
       name: 'nicksp/typescript/rules',
@@ -66,11 +138,9 @@ export async function typescript(
         '@typescript-eslint/consistent-type-assertions': [
           'error',
           {
-            assertionStyle: 'as',
             objectLiteralTypeAssertions: 'allow-as-parameter',
           },
         ],
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         '@typescript-eslint/consistent-type-imports': [
           'error',
           {
@@ -89,8 +159,10 @@ export async function typescript(
         '@typescript-eslint/no-extraneous-class': 'off',
         '@typescript-eslint/no-import-type-side-effects': 'error',
         '@typescript-eslint/no-invalid-void-type': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-redeclare': 'error',
+        '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'off',
+        '@typescript-eslint/no-unnecessary-parameter-property-assignment':
+          'error',
         '@typescript-eslint/no-unsafe-function-type': 'off',
         '@typescript-eslint/no-unused-expressions': [
           'error',
@@ -141,6 +213,20 @@ export async function typescript(
         ...overrides,
       },
     },
+
+    ...(typeAware
+      ? [
+          {
+            files: filesTypeAware,
+            ignores: ignoresTypeAware,
+            name: 'nicksp/typescript/type-aware-rules',
+            rules: {
+              ...typeAwareRules,
+              ...overridesTypeAware,
+            },
+          },
+        ]
+      : []),
 
     {
       files: ['**/*.d.ts'],

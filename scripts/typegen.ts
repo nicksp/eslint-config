@@ -1,5 +1,4 @@
 import { writeFile } from 'node:fs/promises'
-// eslint-disable-next-line node/no-unsupported-features/node-builtins
 import { styleText } from 'node:util'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
@@ -7,6 +6,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 import {
   astro,
   comments,
+  type Config,
   imports,
   javascript,
   jsdoc,
@@ -26,44 +26,47 @@ import {
   yaml,
 } from '../src'
 
-const configs = (
-  await Promise.all([
-    {
-      name: 'builtin-rules',
-      plugins: {
-        '': {
-          rules: Object.fromEntries(builtinRules),
-        },
+async function presetAll(): Promise<Config[]> {
+  return [
+    ...(await astro()),
+    ...comments(),
+    ...(await prettier()),
+    ...imports(),
+    ...javascript(),
+    ...(await jsx({ a11y: true })),
+    ...jsdoc(),
+    ...jsonc(),
+    ...node(),
+    ...sortImports(),
+    ...(await nextjs()),
+    ...(await react()),
+    ...sortPackageJson(),
+    ...sortTsconfig(),
+    ...test(),
+    ...regexp(),
+    ...typescript(),
+    ...unicorn(),
+    ...yaml(),
+  ]
+}
+
+const configs = [
+  ...(await presetAll()),
+  {
+    name: 'builtin-rules',
+    plugins: {
+      '': {
+        rules: Object.fromEntries(builtinRules),
       },
     },
-    astro(),
-    comments(),
-    prettier(),
-    imports(),
-    javascript(),
-    jsx({ a11y: true }),
-    jsdoc(),
-    jsonc(),
-    node(),
-    sortImports(),
-    nextjs(),
-    react(),
-    sortPackageJson(),
-    sortTsconfig(),
-    test(),
-    regexp(),
-    typescript(),
-    unicorn(),
-    yaml(),
-  ])
-).flat()
-
-const configNames = configs.map(i => i.name).filter(Boolean) as string[]
+  },
+]
 
 let dts = await flatConfigsToRulesDTS(configs, {
   includeAugmentation: false,
 })
 
+const configNames = configs.map(i => i.name).filter(Boolean) as string[]
 dts += `
 // Names of all the configs
 export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}

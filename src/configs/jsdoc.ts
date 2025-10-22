@@ -2,7 +2,7 @@ import { pluginJsDoc } from '../plugins'
 
 import type { Config } from '../types'
 
-export async function jsdoc(): Promise<Config[]> {
+export function jsdoc(): Config[] {
   return [
     {
       name: 'nicksp/jsdoc/rules',

@@ -1,9 +1,15 @@
 import { isPackageExists } from 'local-pkg'
 
-import { GLOB_SRC } from '../globs'
+import {
+  GLOB_ASTRO_TS,
+  GLOB_MARKDOWN,
+  GLOB_SRC,
+  GLOB_TS,
+  GLOB_TSX,
+} from '../globs'
 import { ensurePackages, interopDefault } from '../utils'
 
-import type { Config, OptionsFiles, OptionsOverrides } from '../types'
+import type { Config, OptionsFiles, OptionsTypescript } from '../types'
 
 // react refresh
 const ReactRefreshAllowConstantExportPackages = ['vite']
@@ -16,9 +22,15 @@ const ReactRouterPackages = [
 const NextJsPackages = ['next']
 
 export async function react(
-  options: OptionsOverrides & OptionsFiles = {},
+  options: OptionsTypescript & OptionsFiles = {},
 ): Promise<Config[]> {
-  const { files = [GLOB_SRC], overrides = {} } = options
+  const {
+    files = [GLOB_SRC],
+    filesTypeAware = [GLOB_TS, GLOB_TSX],
+    ignoresTypeAware = [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS],
+    overrides = {},
+    typeAware,
+  } = options
 
   await ensurePackages([
     '@eslint-react/eslint-plugin',
@@ -33,6 +45,10 @@ export async function react(
       interopDefault(import('eslint-plugin-react-refresh')),
     ],
   )
+
+  const typeAwareRules: Config['rules'] = {
+    'react-x/no-leaked-conditional-rendering': 'warn',
+  }
 
   const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(
     i => isPackageExists(i),
@@ -127,5 +143,18 @@ export async function react(
         ...overrides,
       },
     },
+
+    ...(typeAware
+      ? [
+          {
+            files: filesTypeAware,
+            ignores: ignoresTypeAware,
+            name: 'nicksp/react/type-aware-rules',
+            rules: {
+              ...typeAwareRules,
+            },
+          },
+        ]
+      : []),
   ]
 }

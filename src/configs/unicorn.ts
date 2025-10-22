@@ -14,9 +14,7 @@ const COMMUNITY_HEALTH_MARKDOWN_REGEX = [
   'LICENSE.*$',
 ]
 
-export async function unicorn(
-  options: OptionsOverrides = {},
-): Promise<Config[]> {
+export function unicorn(options: OptionsOverrides = {}): Config[] {
   const { overrides = {} } = options
 
   return [
@@ -40,7 +38,21 @@ export async function unicorn(
             ignore: [...COMMUNITY_HEALTH_MARKDOWN_REGEX],
           },
         ],
-        'unicorn/import-style': 'off',
+        'unicorn/import-style': [
+          'warn',
+          {
+            styles: {
+              chalk: { default: true },
+              'node:child_process': { named: true },
+              'node:fs': { named: true },
+              'node:fs/promises': { named: true },
+              'node:os': { default: true },
+              'node:path': { default: true },
+              'node:readline': { default: true },
+              'node:util': { named: true },
+            },
+          },
+        ],
         'unicorn/no-for-loop': 'error',
         'unicorn/no-process-exit': 'off',
         'unicorn/no-useless-undefined': [

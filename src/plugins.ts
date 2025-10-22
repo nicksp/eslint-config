@@ -1,7 +1,7 @@
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
-export { default as pluginComments } from '@eslint-community/eslint-plugin-eslint-comments'
+export { default as configComments } from '@eslint-community/eslint-plugin-eslint-comments/configs'
 export { default as configJs } from '@eslint/js'
 export { default as pluginVitest } from '@vitest/eslint-plugin'
 export { default as pluginIgnore } from 'eslint-config-flat-gitignore'

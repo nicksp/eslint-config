@@ -1,17 +1,12 @@
-import { pluginComments } from '../plugins'
+import { configComments } from '../plugins'
 
 import type { Config } from '../types'
 
-export async function comments(): Promise<Config[]> {
+export function comments(): Config[] {
   return [
     {
+      ...configComments.recommended,
       name: 'nicksp/comments/recommended',
-      plugins: {
-        '@eslint-community/eslint-comments': pluginComments,
-      },
-      rules: {
-        ...pluginComments.configs.recommended.rules,
-      },
     },
     {
       name: 'nicksp/comments/rules',
@@ -22,5 +17,5 @@ export async function comments(): Promise<Config[]> {
         ],
       },
     },
-  ]
+  ] as Config[]
 }

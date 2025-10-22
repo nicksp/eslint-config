@@ -2,7 +2,7 @@ import { GLOB_SRC, GLOB_SRC_EXT, GLOB_TESTS } from '../globs'
 
 import type { Config } from '../types'
 
-export async function disables(): Promise<Config[]> {
+export function disables(): Config[] {
   return [
     {
       files: [`**/scripts/${GLOB_SRC}`],

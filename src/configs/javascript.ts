@@ -16,9 +16,9 @@ export const restrictedSyntaxJs: AST_NODE_TYPES[] = [
   AST_NODE_TYPES.TSExportAssignment,
 ]
 
-export async function javascript(
+export function javascript(
   options: OptionsIsInEditor & OptionsOverrides = {},
-): Promise<Config[]> {
+): Config[] {
   const { isInEditor = false, overrides = {} } = options
 
   return [

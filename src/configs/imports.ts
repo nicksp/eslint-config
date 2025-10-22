@@ -2,7 +2,7 @@ import { pluginAntfu, pluginImportLite } from '../plugins'
 
 import type { Config } from '../types'
 
-export async function imports(): Promise<Config[]> {
+export function imports(): Config[] {
   return [
     {
       name: 'nicksp/imports/rules',

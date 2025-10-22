@@ -4,9 +4,7 @@ import { parserYaml, pluginYaml } from '../plugins'
 import type { Linter } from 'eslint'
 import type { Config, OptionsFiles, OptionsOverrides } from '../types'
 
-export async function yaml(
-  options: OptionsOverrides & OptionsFiles = {},
-): Promise<Config[]> {
+export function yaml(options: OptionsOverrides & OptionsFiles = {}): Config[] {
   const { files = [GLOB_YAML], overrides = {} } = options
 
   return [
