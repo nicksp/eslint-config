@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/nicksp/eslint-config/compare/v1.2.0...v1.3.0) (2025-10-28)
+
+
+### Features
+
+* **typescript:** integrate eslint-plugin-erasable-syntax-only ([2600666](https://github.com/nicksp/eslint-config/commit/26006662d87da744bc78ae6b77ab2af3c51b605d))
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#14](https://github.com/nicksp/eslint-config/issues/14)) ([e6bfafd](https://github.com/nicksp/eslint-config/commit/e6bfafd4b735f9c35a148d608856cea087603e84))
+* update all non-major dependencies ([#8](https://github.com/nicksp/eslint-config/issues/8)) ([f290116](https://github.com/nicksp/eslint-config/commit/f290116bee6f896830de40bad3cbb0c340132df5))
+
 ## [1.2.0](https://github.com/nicksp/eslint-config/compare/v1.1.0...v1.2.0) (2025-10-13)
 
 
