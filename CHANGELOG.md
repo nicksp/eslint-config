@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/nicksp/eslint-config/compare/v1.3.0...v1.4.0) (2025-11-05)
+
+
+### Features
+
+* **typescript:** enable type checked rules ([7df2d45](https://github.com/nicksp/eslint-config/commit/7df2d45a04983573d7b45c18e83bc37df2c66221))
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#15](https://github.com/nicksp/eslint-config/issues/15)) ([2504279](https://github.com/nicksp/eslint-config/commit/2504279e61d074eee8db2d4e192d34c4a76136e8))
+* update dependency eslint-plugin-unicorn to v62 ([#18](https://github.com/nicksp/eslint-config/issues/18)) ([a26d301](https://github.com/nicksp/eslint-config/commit/a26d301c4fc8d411c3ff6004b7c0d73dd2d282d5))
+
 ## [1.3.0](https://github.com/nicksp/eslint-config/compare/v1.2.0...v1.3.0) (2025-10-28)
 
 
