@@ -34,7 +34,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "scripts": {
     "build": "nr gen && tsdown --clean --dts",
