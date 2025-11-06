@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/nicksp/eslint-config/compare/v1.4.0...v1.5.0) (2025-11-06)
+
+
+### Features
+
+* enable new rule from unicorn ([c04510a](https://github.com/nicksp/eslint-config/commit/c04510af96e7c6a3e64a3e2da1eee36aa90c91bc))
+
+
+### Build Related
+
+* upgrade Node.js to v24 ([8a867e6](https://github.com/nicksp/eslint-config/commit/8a867e66e0816ccc82907483d198f66f200e610b))
+
 ## [1.4.0](https://github.com/nicksp/eslint-config/compare/v1.3.0...v1.4.0) (2025-11-05)
 
 
