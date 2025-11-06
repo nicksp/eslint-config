@@ -20,8 +20,7 @@ export function test(
     ...pluginVitest,
     rules: {
       ...pluginVitest.rules,
-      // extend `test/no-only-tests` rule
-      ...pluginNoOnlyTests.rules,
+      'no-only-tests': pluginNoOnlyTests.rules['no-only-tests'],
     },
   }
 
@@ -48,17 +47,13 @@ export function test(
         ],
         // Consistently use vi.* instead of vitest.*
         'test/consistent-vitest-vi': 'error',
-        // Disallow focused tests such as test.only()
-        'test/no-focused-tests': isInEditor ? 'warn' : 'error',
         'test/no-identical-title': 'error',
         'test/no-import-node-test': 'error',
+        // Disallow focused tests such as test.only()
+        'test/no-only-tests': isInEditor ? 'warn' : 'error',
         // Enforce padding around vitest functions except for padding-around-expect-groups
-        'test/padding-around-after-all-blocks': isInEditor ? 'warn' : 'error',
-        'test/padding-around-after-each-blocks': isInEditor ? 'warn' : 'error',
-        'test/padding-around-before-all-blocks': isInEditor ? 'warn' : 'error',
-        'test/padding-around-before-each-blocks': isInEditor ? 'warn' : 'error',
-        'test/padding-around-describe-blocks': isInEditor ? 'warn' : 'error',
-        'test/padding-around-test-blocks': isInEditor ? 'warn' : 'error',
+        'test/padding-around-all': isInEditor ? 'warn' : 'error',
+        'test/padding-around-expect-groups': 'off',
         'test/prefer-hooks-in-order': 'error',
         'test/prefer-lowercase-title': [
           'error',
