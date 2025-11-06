@@ -40,7 +40,7 @@
     "build": "nr gen && tsdown --clean --dts",
     "dev": "npx @eslint/config-inspector --config eslint-inspector.config.ts",
     "watch": "tsdown --watch",
-    "lint": "eslint",
+    "lint": "npx publint && eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"**/*.{js,cjs,mjs,jsx,ts,tsx,astro,css,jsonn}\"",
     "gen": "tsx scripts/typegen.ts",
