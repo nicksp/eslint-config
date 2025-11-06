@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.2](https://github.com/nicksp/eslint-config/compare/v1.5.1...v1.5.2) (2025-11-06)
+
+
+### Bug Fixes
+
+* update dependency @vitest/eslint-plugin to ^1.4.0 ([#20](https://github.com/nicksp/eslint-config/issues/20)) ([a4ea8f7](https://github.com/nicksp/eslint-config/commit/a4ea8f7f4112ada68bd0ca87ffb326dac1c399bf))
+
+
+### Build Related
+
+* use shared workflows for trusted publishing ([6478c51](https://github.com/nicksp/eslint-config/commit/6478c510b469a0323f1a941d5b10a7d823624e8f))
+
 ## [1.5.1](https://github.com/nicksp/eslint-config/compare/v1.5.0...v1.5.1) (2025-11-06)
 
 
