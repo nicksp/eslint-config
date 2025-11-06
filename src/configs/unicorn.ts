@@ -54,6 +54,8 @@ export function unicorn(options: OptionsOverrides = {}): Config[] {
           },
         ],
         'unicorn/no-for-loop': 'error',
+        // Disallow immediate mutation after variable assignment
+        'unicorn/no-immediate-mutation': 'error',
         'unicorn/no-process-exit': 'off',
         'unicorn/no-useless-undefined': [
           'error',
