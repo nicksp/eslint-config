@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/nicksp/eslint-config/compare/v1.5.0...v1.5.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* attempt to resolve an issue with the missing rule ([1837964](https://github.com/nicksp/eslint-config/commit/183796450bb4c4b76053ddc11c65ac737fa1fb37))
+
 ## [1.5.0](https://github.com/nicksp/eslint-config/compare/v1.4.0...v1.5.0) (2025-11-06)
 
 
