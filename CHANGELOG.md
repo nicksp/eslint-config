@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.3](https://github.com/nicksp/eslint-config/compare/v1.5.2...v1.5.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#27](https://github.com/nicksp/eslint-config/issues/27)) ([99f44df](https://github.com/nicksp/eslint-config/commit/99f44df16c058a45b81af0d462de4097e914e270))
+* update all non-major dependencies ([#29](https://github.com/nicksp/eslint-config/issues/29)) ([3dfd943](https://github.com/nicksp/eslint-config/commit/3dfd943d4ef0d69355ebfc4c44d21eb1c877bd74))
+* update all non-major dependencies to ^9.39.0 ([#25](https://github.com/nicksp/eslint-config/issues/25)) ([78de6f3](https://github.com/nicksp/eslint-config/commit/78de6f327c5fe708043a3005c284068019b28019))
+* update dependency eslint-plugin-jsdoc to ^61.1.12 ([#28](https://github.com/nicksp/eslint-config/issues/28)) ([26bacc1](https://github.com/nicksp/eslint-config/commit/26bacc1ede8dd36ef422c875d2e107d7aec6abc9))
+
 ## [1.5.2](https://github.com/nicksp/eslint-config/compare/v1.5.1...v1.5.2) (2025-11-06)
 
 
