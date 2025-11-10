@@ -48,7 +48,7 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-jsdoc:
-        specifier: ^61.1.11
+        specifier: ^61.1.12
         version: 61.1.12(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-jsonc:
         specifier: ^2.21.0
