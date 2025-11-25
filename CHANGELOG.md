@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.5.4](https://github.com/nicksp/eslint-config/compare/v1.5.3...v1.5.4) (2025-11-25)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#31](https://github.com/nicksp/eslint-config/issues/31)) ([f097856](https://github.com/nicksp/eslint-config/commit/f09785606d3ad8bae4394e3b5288b5a02acdd2af))
+* update all non-major dependencies ([#33](https://github.com/nicksp/eslint-config/issues/33)) ([1d6bceb](https://github.com/nicksp/eslint-config/commit/1d6bceb3b320d2a5c0d58a70e9682fa4266ff195))
+* update all non-major dependencies ([#35](https://github.com/nicksp/eslint-config/issues/35)) ([4fee83d](https://github.com/nicksp/eslint-config/commit/4fee83ddd1c7eeef934dbb85baccdb403ef2bcb9))
+* update all non-major dependencies to ^8.46.4 ([#34](https://github.com/nicksp/eslint-config/issues/34)) ([bd82ad0](https://github.com/nicksp/eslint-config/commit/bd82ad0d5d203d411eb82fe9597d857b418bb2b5))
+
 ## [1.5.3](https://github.com/nicksp/eslint-config/compare/v1.5.2...v1.5.3) (2025-11-10)
 
 
