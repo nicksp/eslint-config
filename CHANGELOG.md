@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.5](https://github.com/nicksp/eslint-config/compare/v1.5.4...v1.5.5) (2025-12-03)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#37](https://github.com/nicksp/eslint-config/issues/37)) ([7b930fc](https://github.com/nicksp/eslint-config/commit/7b930fc4cc1ef9eba8a008a05079e6322d57bb32))
+
 ## [1.5.4](https://github.com/nicksp/eslint-config/compare/v1.5.3...v1.5.4) (2025-11-25)
 
 
