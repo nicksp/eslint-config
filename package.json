@@ -3,7 +3,7 @@
   "description": "Nick's ESLint config",
   "version": "1.5.4",
   "type": "module",
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.23.0",
   "author": {
     "name": "Nick Plekhanov",
     "url": "https://plekhanov.me/"
@@ -53,8 +53,8 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "@eslint-react/eslint-plugin": "^2.3.5",
-    "@next/eslint-plugin-next": "^16.0.3",
+    "@eslint-react/eslint-plugin": "^2.3.9",
+    "@next/eslint-plugin-next": "^16.0.4",
     "@nicksp/prettier-config": "^1.1.0",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.39.1",
@@ -98,8 +98,8 @@
     "@clack/prompts": "^0.11.0",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.39.1",
-    "@typescript-eslint/utils": "^8.47.0",
-    "@vitest/eslint-plugin": "^1.4.3",
+    "@typescript-eslint/utils": "^8.48.0",
+    "@vitest/eslint-plugin": "^1.5.0",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-flat-config-utils": "^2.1.4",
@@ -107,7 +107,7 @@
     "eslint-plugin-de-morgan": "^2.0.0",
     "eslint-plugin-erasable-syntax-only": "^0.4.0",
     "eslint-plugin-import-lite": "^0.3.0",
-    "eslint-plugin-jsdoc": "^61.2.1",
+    "eslint-plugin-jsdoc": "^61.4.1",
     "eslint-plugin-jsonc": "^2.21.0",
     "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-no-only-tests": "^3.3.0",
@@ -121,14 +121,14 @@
     "jsonc-eslint-parser": "^2.4.1",
     "local-pkg": "^1.1.2",
     "prettier": "^3.6.2",
-    "typescript-eslint": "^8.47.0",
-    "yaml-eslint-parser": "^1.3.0"
+    "typescript-eslint": "^8.48.0",
+    "yaml-eslint-parser": "^1.3.1"
   },
   "devDependencies": {
     "@antfu/ni": "^27.0.1",
-    "@eslint-react/eslint-plugin": "^2.3.5",
-    "@eslint/config-inspector": "^1.4.1",
-    "@next/eslint-plugin-next": "^16.0.3",
+    "@eslint-react/eslint-plugin": "^2.3.9",
+    "@eslint/config-inspector": "^1.4.2",
+    "@next/eslint-plugin-next": "^16.0.4",
     "@nicksp/eslint-config": "workspace:*",
     "@nicksp/prettier-config": "^1.1.0",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
@@ -142,14 +142,14 @@
     "eslint-typegen": "^2.3.0",
     "execa": "^9.6.0",
     "jiti": "^2.6.1",
-    "lint-staged": "^16.2.6",
+    "lint-staged": "^16.2.7",
     "prettier-plugin-astro": "^0.14.1",
     "simple-git-hooks": "^2.13.1",
     "tinyglobby": "^0.2.15",
-    "tsdown": "^0.16.5",
+    "tsdown": "^0.16.7",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.10"
+    "vitest": "^4.0.14"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
