@@ -42,7 +42,7 @@
     "watch": "tsdown --watch",
     "lint": "npx publint && eslint",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write \"**/*.{js,cjs,mjs,jsx,ts,tsx,astro,css,jsonn}\"",
+    "format": "prettier --write \"**/*.{js,cjs,mjs,jsx,ts,tsx,astro,css,json}\"",
     "gen": "tsx scripts/typegen.ts",
     "prepack": "NODE_ENV=production nr build",
     "test": "nr test:ci",

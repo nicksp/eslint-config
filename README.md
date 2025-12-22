@@ -3,6 +3,7 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Node.js CI status][ci-src]][ci-href]
+[![pkg.pr.new][cr-src]][cr-href]
 
 Shared ESLint config I use on my personal projects. Based on [antfu's config](https://github.com/antfu/eslint-config).
 
@@ -198,3 +199,5 @@ export default defineConfig({
 [npm-downloads-href]: <https://www.npmcharts.com/compare/@nicksp/eslint-config?interval=30>
 [ci-src]: <https://github.com/nicksp/eslint-config/workflows/CI/badge.svg>
 [ci-href]: <https://github.com/nicksp/eslint-config/actions/workflows/ci.yml>
+[cr-src]: <https://pkg.pr.new/badge/nicksp/eslint-config>
+[cr-href]: <https://pkg.pr.new/~/nicksp/eslint-config>
