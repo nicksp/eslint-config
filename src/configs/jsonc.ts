@@ -1,8 +1,8 @@
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 import { parserJsonc, pluginJsonc } from '../plugins'
 
-import type { Linter } from 'eslint'
 import type { Config } from '../types'
+import type { Linter } from 'eslint'
 
 export function jsonc(): Config[] {
   const files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC]

@@ -3,10 +3,10 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { isPackageExists } from 'local-pkg'
 
-import type { Linter } from 'eslint'
-import type { Awaitable } from 'eslint-flat-config-utils'
 import type { RuleOptions } from './typegen'
 import type { Options, ResolvedOptions } from './types'
+import type { Linter } from 'eslint'
+import type { Awaitable } from 'eslint-flat-config-utils'
 
 const scopeUrl = fileURLToPath(new URL('.', import.meta.url))
 const isCwdInScope = isPackageExists('@nicksp/eslint-config')

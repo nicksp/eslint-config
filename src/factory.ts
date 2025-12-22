@@ -30,8 +30,8 @@ import {
 import { regexp } from './configs/regexp'
 import { getOverrides, isInEditorEnv, resolveSubOptions } from './utils'
 
-import type { Linter } from 'eslint'
 import type { Config, ConfigNames, Options } from './types'
+import type { Linter } from 'eslint'
 
 /**
  * Construct an array of ESLint flat config items.

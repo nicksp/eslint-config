@@ -1,6 +1,6 @@
+import type { ConfigNames, RuleOptions } from './typegen'
 import type { Linter } from 'eslint'
 import type { Options as PrettierOptions } from 'prettier'
-import type { ConfigNames, RuleOptions } from './typegen'
 
 export type Rules = Record<string, Linter.RuleEntry<any> | undefined> &
   RuleOptions

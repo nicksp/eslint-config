@@ -1,8 +1,8 @@
 import { GLOB_YAML } from '../globs'
 import { parserYaml, pluginYaml } from '../plugins'
 
-import type { Linter } from 'eslint'
 import type { Config, OptionsFiles, OptionsOverrides } from '../types'
+import type { Linter } from 'eslint'
 
 export function yaml(options: OptionsOverrides & OptionsFiles = {}): Config[] {
   const { files = [GLOB_YAML], overrides = {} } = options

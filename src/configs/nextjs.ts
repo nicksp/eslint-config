@@ -1,8 +1,8 @@
 import { GLOB_SRC } from '../globs'
 import { ensurePackages, interopDefault } from '../utils'
 
-import type { Linter } from 'eslint'
 import type { Config, OptionsFiles, OptionsOverrides } from '../types'
+import type { Linter } from 'eslint'
 
 export async function nextjs(
   options: OptionsOverrides & OptionsFiles = {},

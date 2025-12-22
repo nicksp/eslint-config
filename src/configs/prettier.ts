@@ -2,13 +2,13 @@ import { GLOB_ASTRO } from '../globs'
 import { pluginAntfu } from '../plugins'
 import { ensurePackages, interopDefault, isPackageInScope } from '../utils'
 
-import type { Options as PrettierOptions } from 'prettier'
 import type {
   Config,
   OptionsEnableAstro,
   OptionsOverrides,
   OptionsPrettierOptions,
 } from '../types'
+import type { Options as PrettierOptions } from 'prettier'
 
 export async function prettier(
   options: OptionsPrettierOptions & OptionsOverrides & OptionsEnableAstro = {},
