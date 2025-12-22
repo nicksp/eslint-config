@@ -10,4 +10,4 @@ on:
 
 jobs:
   lint:
-    uses: nicksp/workflows/.github/workflows/test.yml@4b1950fadababbc1057c7b25f8edebe186cb8f7d # v1
+    uses: nicksp/workflows/.github/workflows/test.yml@7930c378a75a10f5ab3ce92b5140742504dd1cb8 # v1.2.0

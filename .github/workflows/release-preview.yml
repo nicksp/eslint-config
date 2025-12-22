@@ -1,0 +1,9 @@
+name: Release Preview
+
+on: [push, pull_request]
+
+jobs:
+  release:
+    uses: nicksp/workflows/.github/workflows/release-preview.yml@7930c378a75a10f5ab3ce92b5140742504dd1cb8 # v1.2.0
+    with:
+      compact: true
