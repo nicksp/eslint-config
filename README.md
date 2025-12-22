@@ -1,6 +1,8 @@
 # @nicksp/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@nicksp/eslint-config.svg)](https://www.npmjs.com/package/@nicksp/eslint-config) [![Node.js CI status](https://github.com/nicksp/eslint-config/workflows/CI/badge.svg)](https://github.com/nicksp/eslint-config/actions)
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Node.js CI status][ci-src]][ci-href]
 
 Shared ESLint config I use on my personal projects. Based on [antfu's config](https://github.com/antfu/eslint-config).
 
@@ -188,3 +190,11 @@ export default defineConfig({
 ## License
 
 [MIT](LICENSE) License &copy; 2025 [Nick Plekhanov](https://plekhanov.me)
+
+<!-- Badges -->
+[npm-version-src]: <https://img.shields.io/npm/v/@nicksp/eslint-config.svg>
+[npm-version-href]: <https://npmjs.com/package/@nicksp/eslint-config>
+[npm-downloads-src]: <https://img.shields.io/npm/dm/@nicksp/eslint-config>
+[npm-downloads-href]: <https://www.npmcharts.com/compare/@nicksp/eslint-config?interval=30>
+[ci-src]: <https://github.com/nicksp/eslint-config/workflows/CI/badge.svg>
+[ci-href]: <https://github.com/nicksp/eslint-config/actions/workflows/ci.yml>
