@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.5.5](https://github.com/nicksp/eslint-config/compare/v1.5.4...v1.5.5) (2025-12-22)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#37](https://github.com/nicksp/eslint-config/issues/37)) ([7b930fc](https://github.com/nicksp/eslint-config/commit/7b930fc4cc1ef9eba8a008a05079e6322d57bb32))
+* update all non-major dependencies ([#40](https://github.com/nicksp/eslint-config/issues/40)) ([87401f4](https://github.com/nicksp/eslint-config/commit/87401f4a9b5b232edcc53e03d3c7e70facb922ab))
+* update dependency eslint-plugin-perfectionist to v5 ([c687272](https://github.com/nicksp/eslint-config/commit/c687272ef1d04b7c5683aedcde72588d266d363f))
+
 ## [1.5.4](https://github.com/nicksp/eslint-config/compare/v1.5.3...v1.5.4) (2025-11-25)
 
 
