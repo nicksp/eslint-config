@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.6](https://github.com/nicksp/eslint-config/compare/v1.5.5...v1.5.6) (2025-12-23)
+
+
+### Build Related
+
+* add release preview and point to latest workflows ([ad1c9da](https://github.com/nicksp/eslint-config/commit/ad1c9daf07a9418e89d7ad3ab0abbae806f84b05))
+
 ## [1.5.5](https://github.com/nicksp/eslint-config/compare/v1.5.4...v1.5.5) (2025-12-22)
 
 
