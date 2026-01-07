@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.6](https://github.com/nicksp/eslint-config/compare/v1.5.5...v1.5.6) (2026-01-07)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#48](https://github.com/nicksp/eslint-config/issues/48)) ([232ff6d](https://github.com/nicksp/eslint-config/commit/232ff6d872bd0d1904b5c2cd982f265e5a37ef8a))
+* update dependency @vitest/eslint-plugin to ^1.6.3 ([#47](https://github.com/nicksp/eslint-config/issues/47)) ([7d4ace6](https://github.com/nicksp/eslint-config/commit/7d4ace6a360668e27de753c7d9dbb3ee97ec2747))
+
+
+### Build Related
+
+* add release preview and point to latest workflows ([35b90d4](https://github.com/nicksp/eslint-config/commit/35b90d404ca69053a62d039e123cd7ee087b7aaa))
+
 ## [1.5.5](https://github.com/nicksp/eslint-config/compare/v1.5.4...v1.5.5) (2025-12-22)
 
 
