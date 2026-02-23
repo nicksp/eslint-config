@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.8](https://github.com/nicksp/eslint-config/compare/v1.5.7...v1.5.8) (2026-02-23)
+
+
+### Bug Fixes
+
+* update all non-major dependencies ([#64](https://github.com/nicksp/eslint-config/issues/64)) ([a96bea3](https://github.com/nicksp/eslint-config/commit/a96bea3d728b883ca13bafc5b3b62a741dac77a0))
+* update all non-major dependencies ([#65](https://github.com/nicksp/eslint-config/issues/65)) ([1455dce](https://github.com/nicksp/eslint-config/commit/1455dceac7075d0354daab807ae98d59d48d5840))
+* update all non-major dependencies to ^8.53.0 ([#62](https://github.com/nicksp/eslint-config/issues/62)) ([03dbdd1](https://github.com/nicksp/eslint-config/commit/03dbdd17a78fd42c53457b6ebcf96e2c622f1ce8))
+* update dependency @clack/prompts to v1 ([#66](https://github.com/nicksp/eslint-config/issues/66)) ([921f0d2](https://github.com/nicksp/eslint-config/commit/921f0d2ef6b2f67981934a72186a01c12dbdd895))
+* update dependency eslint-flat-config-utils to v3 ([#67](https://github.com/nicksp/eslint-config/issues/67)) ([a43511d](https://github.com/nicksp/eslint-config/commit/a43511db0dddbc8dd5c96e0236a3bb9d426973f4))
+* update dependency eslint-plugin-regexp to v3 ([#69](https://github.com/nicksp/eslint-config/issues/69)) ([0531656](https://github.com/nicksp/eslint-config/commit/05316569feb2138692f8e06cb793c8bcd17dafc4))
+* update dependency eslint-plugin-unicorn to v63 ([#70](https://github.com/nicksp/eslint-config/issues/70)) ([ebf7064](https://github.com/nicksp/eslint-config/commit/ebf706400c23a70ca760eff5829e0d035ed0adff))
+* update eslint monorepo to v10 ([#73](https://github.com/nicksp/eslint-config/issues/73)) ([4e6bc73](https://github.com/nicksp/eslint-config/commit/4e6bc7301fdbe196261b8459c0c917c9dc761253))
+
 ## [1.5.7](https://github.com/nicksp/eslint-config/compare/v1.5.6...v1.5.7) (2026-01-16)
 
 
