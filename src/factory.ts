@@ -48,7 +48,7 @@ export function defineConfig(
   >[]
 ): FlatConfigComposer<Config, ConfigNames> {
   const {
-    astro: enableAstro = false,
+    astro: enableAstro = isPackageExists('astro'),
     jsx: enableJsx = true,
     nextjs: enableNextjs = false,
     prettier: enablePrettier = true,

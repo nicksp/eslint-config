@@ -179,7 +179,7 @@ export type Options = {
    * Requires installing for formatting .astro:
    * - `prettier-plugin-astro`
    *
-   * @default false
+   * @default auto-enable if detected
    */
   astro?: boolean | OptionsOverrides
 

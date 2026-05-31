@@ -176,7 +176,7 @@ export default defineConfig({
   // Enable Next.js support
   nextjs: true,
 
-  // Enable Astro support
+  // Astro is autodetected, you can also explicitly enable it
   astro: true,
 })
 ```
